@@ -1,5 +1,7 @@
 # 2 Big O Notation
 
+## 05. Big O Introduction
+
 [reference](https://cs.slides.com/colt_steele/big-o-notation)
 
 WARNING : This section contains some math
@@ -25,3 +27,10 @@ Who cares? 누가 신경 쓰냐
   - 당신의 코드가 느리거나 서로 충돌했을 때, 비효율적인 코드의 일부분을 알아내는 것은 우리의 어플리케이션의 아픈 부분을 찾아내는 것에 도움이 됨
 - Less important but it comes up in interviews :(
   - 덜 중요하지만 기술 면접에서 나올 것 ^^
+
+---
+
+## 06. 코드 시간 재기
+
+- An Example
+  Suppose we want to write a fn that calculates the sum of all numbers from 1 up to (and including) some number n
