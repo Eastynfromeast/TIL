@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Ch 02. 자료와 변수</title>
+	</head>
+	<body>
+		<script>
+			// 복합 대입 연산자
+			let list = '';
+			list += '<ul>';
+			list += ' <li>Hello</li>';
+			list += ' <li>JavaScript!</li>';
+			list += '</ul>';
+
+			document.write(list);
+
+			// 증감 연산자
+			let number = 10;
+			/* 	
+			number++;
+			console.log(number); // 11 출력
+			*/
+
+			/*
+		후위 postfix 	
+			console.log(number++); // 10 === console.log(number); number += 1;
+			console.log(number++); // 11 === console.log(number); number += 1;
+			console.log(number++); // 12 === console.log(number); number += 1;
+		*/
+
+			/* 
+		전위 prefix 
+			console.log(++number); // 11 === number += 1; console.log(number);
+			console.log(++number); // 12 === number += 1; console.log(number);
+			console.log(++number); // 13 === number += 1; console.log(number);
+		*/
+
+			/*
+			console.log(number++); // 10
+			console.log(++number); // 12
+			console.log(number--); // 12
+			console.log(--number); // 10
+		*/
+
+			console.log(++number); // 11
+			console.log(number++); // 11
+			console.log(++number); // 13
+			console.log(number--); // 13
+		</script>
+	</body>
+</html>
