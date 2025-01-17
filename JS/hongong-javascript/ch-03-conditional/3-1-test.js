@@ -41,7 +41,7 @@ if (hour < 11) {
 
 function checkIsNaN(input) {
 	if (Number.isNaN(input)) {
-		alert('숫자를 입력해주세요');
+		alert('숫자만 입력해주세요!');
 	}
 	return Number.isNaN(input);
 }
@@ -69,5 +69,55 @@ function doHomework(x) {
 		console.log(`입력하신 값 ${x} 은/는 조건에 맞습니다.`);
 	} else {
 		console.log(`입력하신 값 ${x} 은/는 조건에 맞지 않습니다.`);
+	}
+}
+
+function checkIsPositiveNumber() {
+	const input = Number(prompt('숫자를 입력하세요', ''));
+
+	if (checkIsNaN(input)) {
+		return;
+	}
+
+	if (input > 0) {
+		alert('입력한 숫자는 양수입니다.');
+	} else if (input === 0) {
+		alert('입력한 숫자는 0입니다.');
+	} else {
+		alert('입력한 숫자는 음수입니다.');
+	}
+}
+
+function checkIsEvenNumber() {
+	const input = Number(prompt('숫자를 입력하세요', ''));
+
+	if (checkIsNaN(input)) {
+		return;
+	}
+
+	if (input % 2 === 0) {
+		alert('입력한 숫자는 짝수입니다.');
+	} else {
+		alert('입력한 숫자는 홀수입니다.');
+	}
+}
+
+function checkMonthsSeason() {
+	const input = prompt('월을 입력하세요', '');
+	const spring = ['3', '4', '5'];
+	const summer = ['6', '7', '8'];
+	const autumn = ['9', '10', '11'];
+	const winter = ['12', '1', '2'];
+
+	if (spring.includes(input)) {
+		alert('봄입니다.');
+	} else if (summer.includes(input)) {
+		alert('여름입니다.');
+	} else if (autumn.includes(input)) {
+		alert('가을입니다.');
+	} else if (winter.includes(input)) {
+		alert('겨울입니다.');
+	} else {
+		alert('1월에서 12월까지만 입력 가능합니다.');
 	}
 }
