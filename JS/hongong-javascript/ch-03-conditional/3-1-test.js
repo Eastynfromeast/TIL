@@ -1,6 +1,6 @@
 // 현재 시작에 따라 오전과 오후 구분하기
-const date = new Date();
-const hour = date.getHours();
+/* const date = new Date();
+const hour = date.getHours(); */
 
 /* if 
 if (hour < 12) {
@@ -120,4 +120,100 @@ function checkMonthsSeason() {
 	} else {
 		alert('1월에서 12월까지만 입력 가능합니다.');
 	}
+}
+
+function learnSwitch() {
+	const input = Number(prompt('숫자를 입력하세요.', '숫자'));
+
+	switch (input % 2) {
+		case 0:
+			alert('짝수입니다.');
+			break;
+		case 1:
+			alert('홀수입니다.');
+			break;
+		default:
+			alert('숫자가 아닙니다.');
+			break;
+	}
+}
+
+/* const date = new Date();
+const hour = date.getHours();
+
+switch (true) {
+	case hour < 11:
+		alert('아침을 먹을 시간입니다.');
+		break;
+
+	case hour < 15:
+		alert('점심을 먹을 시간입니다.');
+		break;
+
+	default:
+		alert('저녁을 먹을 시간입니다.');
+		break;
+} */
+
+function learnConditionalOperator() {
+	const input = Number(prompt('숫자를 입력하세요.', '숫자'));
+	const result = input >= 0 ? '0 이상의 숫자입니다' : '0보다 작은 숫자입니다';
+	alert(result);
+}
+
+// 148p if-else 조건문으로 짝수 홀수 구분하기
+function checkIsEvenNumberWithIfElse() {
+	const input = prompt('정수를 입력해주세요.', '');
+	const end = input[input.length - 1];
+	if (end === '0' || end === '2' || end === '4' || end === '6' || end === '8') {
+		alert(`${input}은 짝수입니다.`);
+	} else {
+		alert(`${input}은 홀수입니다.`);
+	}
+}
+
+// 149p if-else 조건문으로 짝수 홀수 구분하기 2
+function checkIsEvenNumberWithIfElse2() {
+	const input = prompt('정수를 입력해주세요.', '');
+	const number = Number(input);
+
+	if (number % 2 === 0) {
+		alert(`${input}은 짝수입니다.`);
+	} else {
+		alert(`${input}은 홀수입니다.`);
+	}
+}
+
+// 150p 학점 기반으로 별명 붙여주기
+function nameAsGPA() {
+	const score = Number(prompt('학점을 입력해주세요', 'ex) 3.8'));
+	if (score === 4.5) {
+		alert('신');
+	} else if (4.2 <= score) {
+		alert('교수님의 사랑');
+	} else if (3.5 <= score) {
+		alert('현 체제의 수호자');
+	} else if (2.8 <= score) {
+		alert('일반인');
+	} else if (2.3 <= score) {
+		alert('일탈을 꿈꾸는 소시민');
+	} else if (1.75 <= score) {
+		alert('오락문화의 선구자');
+	} else if (1.0 <= score) {
+		alert('불가축천민');
+	} else if (0.5 <= score) {
+		alert('자벌레');
+	} else if (0 < score) {
+		alert('플랑크톤');
+	} else {
+		alert('시대를 앞서가는 혁명의 씨앗');
+	}
+}
+
+// 153p split으로 문자열 잘라 사용하기
+function getTti() {
+	const rawInput = prompt('태어난 해를 입력해주세요.', '');
+	const year = Number(rawInput);
+	const tti = '원숭이,닭,개,돼지,쥐,소,호랑이,토끼,용,뱀,말,양'.split(',');
+	alert(`${year}년에 태어났다면 ${tti[year % 12]}띠입니다.`);
 }
