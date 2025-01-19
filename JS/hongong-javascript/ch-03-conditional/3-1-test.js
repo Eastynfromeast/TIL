@@ -217,3 +217,74 @@ function getTti() {
 	const tti = '원숭이,닭,개,돼지,쥐,소,호랑이,토끼,용,뱀,말,양'.split(',');
 	alert(`${year}년에 태어났다면 ${tti[year % 12]}띠입니다.`);
 }
+
+// 마무리 문제
+function p154Q1() {
+	const result = 100 > 200 ? prompt('값을 입력해주세요', '') : confirm('버튼을 클릭해주세요'); // confirm 실행됨
+	alert(result);
+}
+
+// 태어난 연도 받아 띠 출력하기 switch
+function p155Q2() {
+	const rawInput = prompt('태어난 해를 입력해주세요.', '');
+	const year = Number(rawInput);
+	const e = year % 12;
+	let result;
+	switch (e) {
+		case 0:
+			result = '원숭이';
+			break;
+		case 1:
+			result = '닭';
+			break;
+		case 2:
+			result = '개';
+			break;
+		case 3:
+			result = '돼지';
+			break;
+		case 4:
+			result = '쥐';
+			break;
+		case 5:
+			result = '소';
+			break;
+		case 6:
+			result = '호랑이';
+			break;
+		case 7:
+			result = '토끼';
+			break;
+		case 8:
+			result = '용';
+			break;
+		case 9:
+			result = '뱀';
+			break;
+		case 10:
+			result = '말';
+			break;
+		case 11:
+			result = '양';
+			break;
+		default:
+			alert('숫자만 입력해주세요');
+			break;
+	}
+	if (result !== undefined) {
+		alert(`${year}년에 태어났다면 ${result}띠입니다.`);
+	} else {
+		return;
+	}
+}
+
+// 60갑자 년도 알아내기
+function p156Q3() {
+	const rawInput = prompt('태어난 해를 입력해주세요.', '');
+	const year = Number(rawInput);
+	const e = year % 12;
+
+	let gahn = '경,신,임,계,갑,을,병,정'.split(',');
+	let tti = '신,유,술,해,자,축,인,묘,진,사,오,미'.split(',');
+	alert(`${year}년은 ${gahn[year % 10]}${tti[year % 12]} 년입니다.`);
+}
