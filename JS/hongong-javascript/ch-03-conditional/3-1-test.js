@@ -277,6 +277,7 @@ function p155Q2() {
 		return;
 	}
 }
+p155Q2();
 
 // 60갑자 년도 알아내기
 function p156Q3() {
