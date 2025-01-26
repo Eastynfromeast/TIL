@@ -64,6 +64,37 @@ function p172Q2() {
 	console.log(array); // [1,2,3,4,5]
 }
 
+// p.173 파괴적 처리 vs 비파괴적 처리
+// 3-1
+const strA = '사과, 배, 바나나, 귤';
+strA.split(','); // ['사과','배','바나나','귤']
+strA; // '사과, 배, 바나나, 귤'
+/* => 비파괴적 처리
+	`String.prototype.split(seperator)` 은 주어진 문자열을 seperator 마다 끊은 부분 문자열을 담은 배열을 반환할 뿐 기존의 문자열을 변경하지 않음
+*/
+
+// 3-2
+const arrayB = ['사과', '배', '바나나', '귤'];
+arrayB.push('감');
+arrayB; //['사과','배','바나나','귤','감']
+/* => 파괴적 처리
+`Array.prototype.push()` 메서드는 변경 메서드로 기존의 배열에 새로운 값을 추가하므로 파괴적 처리
+*/
+
+// 3-3
 const arrayC = [1, 2, 3, 4, 5];
 console.log(arrayC.map(x => x * x));
 console.log(arrayC);
+/* => 비파괴적 처리
+`Array.prototype.map()`은 호출한 배열의 모든 요소에 주어진 함수를 호출한 결과로 채운 새로운 배열을 생성하는 
+복사 메서드로 원본 자료를 파괴하지 않는 비파괴적 처리를 함
+*/
+
+// 3-4
+const strD = ' 여백이 포함된 메시지   ';
+strD.trim(); // '여백이 포함된 메시지'
+strD; // ' 여백이 포함된 메시지   '
+/* => 비파괴적 처리
+`String.prototype.trim()`은 문자열 양 끝의 공백을 제거하면서 원본 문자열을 수정하지 않고 새로운 문자열을 반환하므로
+비파괴적 처리라 할 수 있음
+*/
