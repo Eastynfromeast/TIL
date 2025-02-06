@@ -189,3 +189,70 @@ function p216getEarning(wage, hours) {
 	hours = typeof hours !== undefined ? hours : 52;
 	return wage * hours;
 }
+
+/*
+  확인 문제
+*/
+// 1. A부터 B까지 범위를 지정했을 떄 범위 안의 숫자를 모두 곱하는 함수를 만들어보세요
+function mulitplyAll(a, b) {
+	let output = a;
+	for (let i = a; i <= b; i++) {
+		output = output * i;
+	}
+	return output;
+}
+
+console.log(mulitplyAll(1, 2)); // 2
+console.log(mulitplyAll(1, 3)); // 6
+
+// 2. 다음 과정에 따라 최대값을 찾는 max() 함수를 만드세요
+// 매개변수 [1,2,3,4]
+const getMax218 = function (array) {
+	let output = array[0];
+	for (const item of array) {
+		if (output <= item) {
+			output = item;
+		}
+	}
+	return output;
+};
+
+console.log(`매개변수 [1,2,3,4]: ${getMax218([1, 2, 3, 4])}`);
+
+// 매개변수 getMax219(1,2,3,4)
+
+const getMax219 = function (...items) {
+	let output = items[0];
+	for (const item of items) {
+		if (output <= item) {
+			output = item;
+		}
+	}
+	return output;
+};
+
+console.log(`매개변수 (1,2,3,4) : ${getMax219(1, 2, 3, 4)}`);
+
+// 위의 두 형태를 모두 입력할 수 있는 getMaxAllType()
+const getMaxAllType = function (first, ...rests) {
+	let output;
+	let items;
+	if (Array.isArray(first)) {
+		output = first[0];
+		items = first;
+	} else if (typeof first === 'number') {
+		output = first;
+		items = rests;
+	}
+
+	for (const item of items) {
+		if (output < item) {
+			output = item;
+		}
+	}
+
+	return output;
+};
+
+console.log(`max(배열) : ${getMaxAllType([1, 2, 3, 4])}`);
+console.log(`max(...숫자) : ${getMaxAllType(1, 2, 3, 4)}`);
