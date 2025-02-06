@@ -149,3 +149,59 @@ p211(array); // [Array(4)]
 console.log('# 전개 연산자를 사용한 경우');
 p211(...array); // (4) [1,2,3,4]
 ```
+
+## 기본 매개변수
+
+매개변수에 기본값을 지정
+
+```
+함수 이름(param1, param2=default2, param3=default3){ }
+```
+
+### 구 버전 JS에서 가변 매개변수 함수 구현하기
+
+arguments : 배열 내부에서 사용할 수 있는 특수한 변수
+
+- 구 버전 JS에서 가변 매개변수 함수를 구현할 때 사용
+- 매개변수와 관련된 여러 정보를 확인할 수 있고
+- 배열과 비슷하게 사용 가능
+
+```
+function getArguments() {
+	console.log(arguments);
+	for (let i = 0; i < arguments.length; i++) {
+		console.log(`${i}번째 요소 : ${arguments[i]}`);
+	}
+}
+
+getArguments(1, 2);
+// Arguments(2) [1,2 callee:f, Symbol(Symbol.iterator) : f]
+// (해석) 배여로가 비슷한 자료형이지만 배열은 X
+// 0번째 요소 : 1
+// 1번째 요소 : 2
+```
+
+### 구 버전 JS에서 전개 연산자 구현하기
+
+_apply()_ 이해하기
+
+~~아니 이게 뭐람~~
+
+```
+function p215Apply(...items) {
+	console.log(items);
+}
+
+const arrayA = [1, 2, 3, 4];
+console.log(p215Apply.apply(null, arrayA)); // [1,2,3,4]
+```
+
+### 구 버전 JS에서 기본 매개변수 구하기
+
+```
+function p216getEarning(wage, hours) {
+	wage = typeof wage != undefined ? wage : 8590;
+	hours = typeof hours !== undefined ? hours : 52;
+	return wage * hours;
+}
+```

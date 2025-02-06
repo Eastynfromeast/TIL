@@ -136,3 +136,56 @@ p211(array); // [Array(4)]
 
 console.log('# 전개 연산자를 사용한 경우');
 p211(...array); // (4) [1,2,3,4]
+
+// p.212 기본 매개변수의 활용
+function earnings(name, wage = 8590, hours = 40) {
+	console.log(`# ${name} 님의 급여 정보 `);
+	console.log(`- 시급 : ${wage}원`);
+	console.log(`- 근무 시간 : ${hours}시간 `);
+	console.log(`- 급여 : ${wage * hours}원`);
+	console.log('');
+}
+// 최저 시급
+earnings('구름');
+
+// 시급 1만원으로 기본 시간을 일하는 경우
+earnings('별', 10000);
+
+// 시급 1만원으로 주 52시간 근무할 경우
+earnings('사랑', 10000, 52);
+
+// p.213 기본 매개변수를 추가한 윤년 함수
+function p213IsLeapYear(year = new Date().getFullYear()) {
+	console.log(`매개변수 year : ${year}`);
+	return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+}
+
+console.log(`올해는 윤년일까? === ${p213IsLeapYear()}`);
+
+// p.214 arguments를 사용한 가변 매개변수 함수
+function getArguments() {
+	console.log(arguments);
+	for (let i = 0; i < arguments.length; i++) {
+		console.log(`${i}번째 요소 : ${arguments[i]}`);
+	}
+}
+
+getArguments(1, 2);
+// Arguments(2) [1,2 callee:f, Symbol(Symbol.iterator) : f]
+// 0번째 요소 : 1
+// 1번째 요소 : 2
+
+// p.215 전개 연산자가 없던 구 버전에서 apply() 함수 사용하기
+function p215Apply(...items) {
+	console.log(items);
+}
+
+const arrayA = [1, 2, 3, 4];
+console.log(p215Apply.apply(null, arrayA));
+
+// p.216 구 버전 JS에서 기본 매개변수 구하기
+function p216getEarning(wage, hours) {
+	wage = typeof wage != undefined ? wage : 8590;
+	hours = typeof hours !== undefined ? hours : 52;
+	return wage * hours;
+}
