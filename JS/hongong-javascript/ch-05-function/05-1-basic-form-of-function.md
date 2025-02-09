@@ -8,7 +8,7 @@
 
 함수란? 코드의 집합을 나타내는 자료형
 
-```
+```javascript
 function () { }
 ```
 
@@ -23,10 +23,8 @@ function () { }
 
 ## 선언적 함수 : 이름이 있는 함수
 
-```
-function 함수(){
-
-}
+```javascript
+function 함수() {}
 ```
 
 - 익명 함수와 다르게 함수를 콘솔로 출력하면 이름이 함께 나옴
@@ -36,11 +34,11 @@ function 함수(){
 - 매개변수 parameter : 함수를 호출할 때 괄호 안에 적는 것 (함수에 전달되는 이름이 있는 변수)
 - 리턴값 return value: 함수의 최종 결과
 
-```
-function 함수(param1,param2, param3){
-  statement
-  statement
-  return returnValue;
+```javascript
+function 함수(param1, param2, param3) {
+	statement;
+	statement;
+	return returnValue;
 }
 ```
 
@@ -53,7 +51,7 @@ function 함수(param1,param2, param3){
   - 100으로 나누어 떨어지지 않음
   - 400으로 나누면 떨어짐
 
-```
+```javascript
 function isLeapYear(year) {
 	let answer = (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0 ? '윤년입니다.' : '윤년이 아닙니다.';
 	return year + '년은 ' + answer;
@@ -62,7 +60,7 @@ function isLeapYear(year) {
 
 ### A부터 B까지 더하는 함수
 
-```
+```javascript
 function sumAll(a, b) {
 	let output = 0;
 	for (let i = a; i <= b; i++) {
@@ -74,7 +72,7 @@ function sumAll(a, b) {
 
 ### 최솟값 구하는 함수
 
-```
+```javascript
 function getMin(array) {
 	let output = array[0];
 	for (const item of array) {
@@ -94,13 +92,13 @@ console.log(`${testArray} 중에서 \n 최솟값 = ${getMin(testArray)}`);
 - 가변 매개변수 함수 : 매개변수의 개수가 고정적이지 않은 함수
 - => _나머지 매개변수 rest parameter_ 로 구현
 
-```
+```javascript
 function 함수 이름 (...rest){ }
 ```
 
 _나머지 매개변수를 사용한 배열 만들기_
 
-```
+```javascript
 function p206RestParameter(...items) {
 	console.log(items);
 }
@@ -109,13 +107,13 @@ console.log(p206RestParameter(1, 2, 3)); // [1,2,3]
 
 ## 나머지 매개변수와 일반 매개변수 조합하기
 
-```
+```javascript
 function 함수 이름(param1, param2, ...rest params){ }
 ```
 
 _p.208 나머지 매개변수와 일반 매개변수를 갖는 함수_
 
-```
+```javascript
 function p208(a, b, ...c) {
 	console.log(a, b, c);
 }
@@ -131,13 +129,13 @@ p208(1, 2, 3, 4); // 1,2,[3,4]
 
 배열을 전개해서 함수의 매개변수로 전달
 
-```
+```javascript
 함수 이름 (...배열)
 ```
 
 _전개 연산자의 활용_
 
-```
+```javascript
 function p211(...items) {
 	console.log(items);
 }
@@ -154,7 +152,7 @@ p211(...array); // (4) [1,2,3,4]
 
 매개변수에 기본값을 지정
 
-```
+```javascript
 함수 이름(param1, param2=default2, param3=default3){ }
 ```
 
@@ -166,7 +164,7 @@ arguments : 배열 내부에서 사용할 수 있는 특수한 변수
 - 매개변수와 관련된 여러 정보를 확인할 수 있고
 - 배열과 비슷하게 사용 가능
 
-```
+```javascript
 function getArguments() {
 	console.log(arguments);
 	for (let i = 0; i < arguments.length; i++) {
@@ -187,7 +185,7 @@ _apply()_ 이해하기
 
 ~~아니 이게 뭐람~~
 
-```
+```javascript
 function p215Apply(...items) {
 	console.log(items);
 }
@@ -198,7 +196,7 @@ console.log(p215Apply.apply(null, arrayA)); // [1,2,3,4]
 
 ### 구 버전 JS에서 기본 매개변수 구하기
 
-```
+```javascript
 function p216getEarning(wage, hours) {
 	wage = typeof wage != undefined ? wage : 8590;
 	hours = typeof hours !== undefined ? hours : 52;

@@ -11,15 +11,15 @@
 
 _콜백 함수 1 - 선언적 함수 사용하기_
 
-```
+```javascript
 function p221callThreeTimes(callback) {
-  for (let i = 0; i < 3; i++) {
-    callback(i);
-  }
+	for (let i = 0; i < 3; i++) {
+		callback(i);
+	}
 }
 
 function p221print(i) {
-  console.log(`${i}번째 함수 호출`);
+	console.log(`${i}번째 함수 호출`);
 }
 
 p221callThreeTimes(p221print);
@@ -27,7 +27,7 @@ p221callThreeTimes(p221print);
 
 _콜백 함수 2 - 익명 함수 사용하기_
 
-```
+```javascript
 p221CallThreeTimes(function (i) {
 	console.log(`${i}번째 함수 호출`);
 });
@@ -43,19 +43,18 @@ array.forEach(function (value, index, array){});
 
 _배열의 forEach() 메소드_
 
-```
+```javascript
 const numbers = [273, 52, 103, 32, 57];
 numbers.forEach(function (value, index, array) {
 	console.log(`${index}번째 요소 : ${value}`);
 });
-
 ```
 
 ### 콜백 함수를 활용하는 함수 : `map()`
 
 `Array.prototype.map()` : 호출한 배열의 모든 요소에 주어진 함수를 호출한 결과로 채운 새로운 배열을 생성
 
-```
+```javascript
 const numbers = [273, 52, 103, 32, 57];
 let numbersMap = numbers.map(function (value) {
 	return value * value;
@@ -68,14 +67,13 @@ numbersMap.forEach(console.log);
 1024 3
 3249 4
 */
-
 ```
 
 ### 콜백 함수를 활용하는 함수 : `filter()`
 
 `Array.prototype.filter()` : 주어진 배열의 일부에 대한 얕은 복사본을 생성하고, 주어진 배열에서 제공된 함수에 의해 구현된 테스트를 통과한 요소로만 필터링
 
-```
+```javascript
 numbers = [0, 1, 2, 3, 4, 5];
 const evenNumbers = numbers.filter(function (value) {
 	return value % 2 === 0;
@@ -89,12 +87,10 @@ console.log(`짝수만 추출 : ${evenNumbers}`); // 짝수만 추출 : 0,2,4
 
 > 콜백 함수에 활용하는 `function (){ }`의 간단한 사용 형태
 
-```
-(매개변수) => {
-
-}
+```javascript
+매개변수 => {};
 // or
-(매개변수) => 리턴값
+매개변수 => 리턴값;
 ```
 
 - 차이점
@@ -104,7 +100,7 @@ _배열의 메소드와 화살표 함수_
 
 > 메소드 체이닝 Method chaining : 메소드가 리턴하는 값을 기반으로 함수를 연속해서 사용
 
-```
+```javascript
 numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 let methodChaining = numbers
 	.filter(value => value % 2 === 0)
