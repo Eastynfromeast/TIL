@@ -41,3 +41,29 @@ let methodChaining = numbers
 	.filter(value => value % 2 === 0)
 	.map(value => value * value)
 	.forEach(value => console.log(value));
+
+// p.227 타이머 걸기
+function p227TimerFn() {
+	setTimeout(() => {
+		console.log('1초 후에 실행됩니다.');
+	}, 1 * 1000);
+
+	let count = 0;
+	setInterval(() => {
+		console.log(`1초마다 실행됩니다 (${count}번째)`);
+		count++;
+	}, 1 * 1000);
+}
+
+// P.228 타이머 취소하기
+let id;
+let count = 0;
+id = setInterval(() => {
+	console.log(`1초마다 실행됩니다 (${count}번째)`);
+	count++;
+}, 1 * 1000);
+
+setTimeout(() => {
+	console.log('타이머를 종료합니다.');
+	clearInterval(id);
+}, 5 * 1000);

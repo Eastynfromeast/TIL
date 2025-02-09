@@ -107,3 +107,46 @@ let methodChaining = numbers
 	.map(value => value * value)
 	.forEach(value => console.log(value));
 ```
+
+## 타이머 함수 timer
+
+|          함수 이름          | 설명                                      |
+| :-------------------------: | ----------------------------------------- |
+|                             | **setTimeout()**                          |
+| setTimeout(callback, time)  | 특정 시간 "후에" 함수를 한번 호출         |
+|    clearTimeout(timerId)    | setTitmeout() 함수로 설정한 타이머를 제거 |
+|                             | **setInterval()**                         |
+| setInterval(callback, time) | 특정 시간"마다" 함수를 호출               |
+|   clearInterval(timerId)    | setInterval() 함수로 설정한 타이머를 제거 |
+
+- timerId : `setTimeOut()`,`setInterval()` 호출 시의 리턴값으로 나오는 숫자
+
+_타이머 설정하기_
+
+```javascript
+setTimeout(() => {
+	console.log('1초 후에 실행됩니다.');
+}, 1 * 1000);
+
+let count = 0;
+setInterval(() => {
+	console.log(`1초마다 실행됩니다 (${count}번째)`);
+	count++;
+}, 1 * 1000);
+```
+
+_타이머 취소하기_
+
+```javascript
+let id;
+let count = 0;
+id = setInterval(() => {
+	console.log(`1초마다 실행됩니다 (${count}번째)`);
+	count++;
+}, 1 * 1000);
+
+setTimeout(() => {
+	console.log('타이머를 종료합니다.');
+	clearInterval(id);
+}, 5 * 1000);
+```
