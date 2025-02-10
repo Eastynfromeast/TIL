@@ -56,14 +56,40 @@ function p227TimerFn() {
 }
 
 // P.228 타이머 취소하기
-let id;
-let count = 0;
-id = setInterval(() => {
-	console.log(`1초마다 실행됩니다 (${count}번째)`);
-	count++;
-}, 1 * 1000);
+function p228ClearTimer() {
+	let id;
+	let count = 0;
+	id = setInterval(() => {
+		console.log(`1초마다 실행됩니다 (${count}번째)`);
+		count++;
+	}, 1 * 1000);
 
-setTimeout(() => {
-	console.log('타이머를 종료합니다.');
-	clearInterval(id);
-}, 5 * 1000);
+	setTimeout(() => {
+		console.log('타이머를 종료합니다.');
+		clearInterval(id);
+	}, 5 * 1000);
+}
+
+// p. 230 이중 충돌 문제 발생
+let pi = 3.14;
+console.log(`파이 값은 ${pi}입니다.`); // 파이 값은 3.14 입니다.
+
+// 블록 사용해 스코프 생성
+{
+	let pi = 3.141592;
+	console.log(`중괄호 블록 내 파이 값은 ${pi}입니다.`); // 중괄호 블록 내 파이 값은 3.141592 입니다.
+}
+
+// 함수 블록으로 스코프 생성
+function fnBlock() {
+	let pi = 3.1415;
+	console.log(`함수 블록 내 파이 값은 ${pi}입니다.`);
+}
+fnBlock(); // 함수 블록 내 파이 값은 3.1415 입니다.
+console.log(`파이 값은 ${pi}입니다.`); // 파이 값은 3.14 입니다.
+
+// p.232 즉시 호출 함수를 사용한 문제 해결
+(function () {
+	let pi = 3.14159;
+	console.log(`즉시 호출 함수 블록 내 파이 값은 ${pi}입니다.`); //즉시 호출 함수 블록 내 파이 값은 3.14159입니다.
+})();
