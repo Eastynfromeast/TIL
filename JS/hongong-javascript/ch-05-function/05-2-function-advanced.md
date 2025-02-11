@@ -202,3 +202,31 @@ console.log(`파이 값은 ${pi}입니다.`); // 파이 값은 3.14 입니다.
 	console.log(`즉시 호출 함수 블록 내 파이 값은 ${pi}입니다.`); //즉시 호출 함수 블록 내 파이 값은 3.14159입니다.
 })();
 ```
+
+### 엄격 모드 Strict mode
+
+코드를 보다 엄격하게 검사하는 모드
+
+```javascript
+'use strict';
+```
+
+_엄격 모드에서 선언 없이 변수 사용_(불가)
+[mdn strict mode](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Strict_mode)
+
+```html
+<script>
+	'use strict';
+	data = 10;
+	console.log(data); // Uncaught ReferenceError: data is not defined
+</script>
+```
+
+- 즉시 호출 함수의 가장 위쪽에 엄격 모드를 적용하는 경우가 많음
+  - 해당 블록 내부에만 엄격 모드 적용 가능
+  ```javascript
+  (function () {
+  	'use strict';
+  	console.log('set use strict');
+  });
+  ```
