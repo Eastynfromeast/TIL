@@ -141,8 +141,30 @@ let p239fn = function () {
 	console.log('익명 함수');
 };
 
-function p239fn() {
+/* function p239fn() {
 	console.log('선언적 함수');
 }
-
+ */
 // p239fn(); // Uncaught SyntaxError: Identifier 'p239Fn' has already been declared
+
+/*
+  확인 문제
+*/
+
+// p.240 1번 filter
+let numbers240 = [273, 25, 75, 52, 103, 32, 57, 24, 76];
+numbers240 = numbers240.filter(item => item % 2 === 1 && item <= 100 && item % 5 === 0);
+console.log(numbers240);
+
+// p.241 2번 forEach
+const array241 = ['사과', '배', '귤', '바나나'];
+console.log('# for in 반복문');
+
+array241.forEach((_, index) => {
+	console.log(index);
+});
+
+console.log('# for of 반복문');
+array241.forEach((item, _) => {
+	console.log(item);
+});
