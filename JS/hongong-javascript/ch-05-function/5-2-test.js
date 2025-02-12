@@ -93,3 +93,56 @@ console.log(`파이 값은 ${pi}입니다.`); // 파이 값은 3.14 입니다.
 	let pi = 3.14159;
 	console.log(`즉시 호출 함수 블록 내 파이 값은 ${pi}입니다.`); //즉시 호출 함수 블록 내 파이 값은 3.14159입니다.
 })();
+
+// p.235 익명 함수 호출
+let anonymousFn;
+
+anonymousFn = function () {
+	console.log('1번째 익명 함수입니다');
+};
+
+anonymousFn = function () {
+	console.log('2번째 익명 함수입니다');
+};
+
+// anonymousFn();
+
+// p.236 선언적 함수 호출
+// declarativeFn(); // 2번째 익명 함수입니다
+
+function declarativeFn() {
+	console.log('1번째 선언적 함수입니다');
+}
+
+function declarativeFn() {
+	console.log('2번째 선언적 함수입니다');
+}
+
+// p.237 선언적 함수와 익명 함수의 조합
+fn = function () {
+	console.log('익명 함수입니다.');
+};
+
+function fn() {
+	console.log('선언적 함수입니다.');
+}
+
+// fn(); // 익명 함수입니다.
+
+// p.238 블록이 다른 경우 선언적 함수의 사용
+declarative();
+
+function declarative() {
+	console.log('1번째 선언적 함수');
+}
+
+// p.239 let 사용의 의미
+let p239fn = function () {
+	console.log('익명 함수');
+};
+
+function p239fn() {
+	console.log('선언적 함수');
+}
+
+// p239fn(); // Uncaught SyntaxError: Identifier 'p239Fn' has already been declared

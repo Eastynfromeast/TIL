@@ -230,3 +230,115 @@ _엄격 모드에서 선언 없이 변수 사용_(불가)
   	console.log('set use strict');
   });
   ```
+
+### 익명 함수와 선언적 함수의 차이
+
+- 반복문의 차이점
+
+  - while 반복문 : 조건 중심 반복
+  - for 반복문 : 횟수 or 배열 중심 반복
+
+익명 함수와 선언적 함수의 차이는? 익명 함수가 더 안전?
+
+#### 익명 함수의 사용
+
+익명 함수는 순차적인 코드 실행에서 코드가 해당 줄을 읽을 때 생성
+
+**익명 함수 호출**
+
+```javascript
+let anonymousFn;
+
+anonymousFn = function () {
+	console.log('1번째 익명 함수입니다');
+};
+
+anonymousFn = function () {
+	console.log('2번째 익명 함수입니다');
+};
+
+anonymousFn(); // 2번째 익명 함수입니다
+```
+
+#### 선언적 함수의 사용
+
+선언적 함수는 순차적인 코드 실행이 일어나기 전에 생성됨
+=> 같은 블록일 경우 어디에서 함수를 호출에도 상관 X
+
+**선언적 함수 호출**
+
+```javascript
+declarativeFn(); // 2번째 익명 함수입니다
+
+function declarativeFn() {
+	console.log('1번째 선언적 함수입니다');
+}
+// 입력한 순서대로 생성되고 같은 이름일 경우 덮어씀
+function declarativeFn() {
+	console.log('2번째 선언적 함수입니다');
+}
+```
+
+#### 선언적 함수와 익명 함수의 조합
+
+```javascript
+fn = function () {
+	console.log('익명 함수입니다.');
+};
+
+function fn() {
+	console.log('선언적 함수입니다.');
+}
+
+fn(); // 익명 함수입니다.
+```
+
+> 선언적 함수는 순차적인 코드 실행이 일어나기 전에 생성되므로, `function fn(){}`가 먼저 선언되어 익명 함수가 나중에 선언된 것으로 처리되어 콘솔에서는 '익명 함수입니다.'가 찍힘
+
+#### 블록이 다른 경우에 선언적 함수의 사용
+
+선언적 함수는 어떤 코드 블록을 읽어들일 때 먼저 생성됨
+=> 블록이 나뉘어진 경우 선언적 함수의 실행 흐름 예측이 어려워짐
+
+**블록이 다른 경우에 선언적 함수의 사용**
+
+```html
+/* 블록 A */
+<script>
+	declarative();
+
+	function declarative() {
+		console.log('1번째 선언적 함수');
+	}
+</script>
+
+/* 블록 B */
+<script>
+	function declarative() {
+		console.log('2번째 선언적 함수');
+	}
+</script>
+
+/* 블록 C */
+<script>
+	declarative();
+</script>
+/* 1번째 선언적 함수 2번째 선언적 함수 */
+```
+
+**let 사용의 의미**
+`var`는 이전 코드를 덮어쓸 수 있지만 `let`은 이러한 위험을 원천적으로 차단함
+
+```javascript
+let p239fn = function () {
+	console.log('익명 함수');
+};
+
+function p239fn() {
+	console.log('선언적 함수');
+}
+
+p239fn(); // Uncaught SyntaxError: Identifier 'p239Fn' has already been declared
+```
+
+**통일한다면 익명 함수로 통힐해서 사용하는 것이 안전하다**
