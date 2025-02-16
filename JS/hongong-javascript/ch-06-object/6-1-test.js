@@ -46,3 +46,40 @@ const test252 = {
 
 test252.fnA(); // {fnA: ƒ, fnB: ƒ}
 test252.fnB(); // Window {window: Window, self: Window, document: document, name : '', location: Location,...}
+
+/* 확인 문제 */
+// p.254 1번
+const object254 = {
+	name: '혼자 공부하는 파이썬',
+	price: 18000,
+	publisher: '한빛미디어',
+};
+
+// p.254~255 2,3번
+object254['genre'] = 'IT';
+object254['level'] = 'basic';
+console.log(JSON.stringify(object254, null, 2));
+
+delete object254['level'];
+console.log(JSON.stringify(object254, null, 2));
+
+// p.255 4번
+const bbang = {
+	ko: '빵',
+	en: 'bread',
+	ja: 'パン',
+	fr: 'pain',
+	es: 'pan',
+	lang: {
+		ko: '한국어',
+		en: '영어',
+		ja: '일본어',
+		fr: '프랑스어',
+		es: '스페인어',
+	},
+	print: function (lang) {
+		console.log(`${this.ko}은 ${this.lang[lang]}로 ${this[lang]}입니다.`);
+	},
+};
+
+bbang.print('es');
